@@ -13,6 +13,10 @@ class ArticlesServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
+
+        $this->loadViewsFrom(__DIR__ . '/Views', 'articles');
+
+        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
     }
 }
