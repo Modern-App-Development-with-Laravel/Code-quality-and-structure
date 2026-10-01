@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Italofantone\Articles\Data\ArticleDTO;
 use Italofantone\Articles\Models\Article;
 
 class ArticleController extends Controller
@@ -30,10 +31,15 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
+        $data = new ArticleDTO(
+            title: $validated['title'],
+            content: $validated['content'],
+        );
+
         Article::create([
-            'title' => $validated['title'],
-            'slug' => Str::slug($validated['title']),
-            'content' => $validated['content'],
+            'title' => $data->title,
+            'slug' => Str::slug($data->title),
+            'content' => $data->content,
         ]);
 
         return to_route('articles.index')->with('success', 'Article created successfully.');
@@ -51,10 +57,15 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
+        $data = new ArticleDTO(
+            title: $validated['title'],
+            content: $validated['content'],
+        );
+
         $article->update([
-            'title' => $validated['title'],
-            'slug' => Str::slug($validated['title']),
-            'content' => $validated['content'],
+            'title' => $data->title,
+            'slug' => Str::slug($data->title),
+            'content' => $data->content,
         ]);
 
         return to_route('articles.index')->with('success', 'Article updated successfully.');
