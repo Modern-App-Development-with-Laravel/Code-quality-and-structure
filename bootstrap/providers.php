@@ -1,9 +1,10 @@
 <?php
 
 use App\Providers\AppServiceProvider;
+use Italofantone\Articles\ArticlesServiceProvider;
 
 return [
     AppServiceProvider::class,
 
-    Italofantone\Articles\ArticlesServiceProvider::class,
+    ArticlesServiceProvider::class,
 ];

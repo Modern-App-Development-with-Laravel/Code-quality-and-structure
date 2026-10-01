@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('status')->default('draft');
             $table->timestamp('published_at')->nullable();
-            
+
             $table->timestamps();
         });
     }
