@@ -8,4 +8,12 @@ readonly class ArticleDTO
         public string $title,
         public string $content
     ) {}
+
+    public static function fromArray(array $data): self
+    {
+        return new self(
+            title: $data['title'],
+            content: $data['content'],
+        );
+    }
 }

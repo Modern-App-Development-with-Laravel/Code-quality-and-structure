@@ -31,10 +31,7 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
-        $data = new ArticleDTO(
-            title: $validated['title'],
-            content: $validated['content'],
-        );
+        $data = ArticleDTO::fromArray($validated);
 
         Article::create([
             'title' => $data->title,
@@ -57,10 +54,7 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
-        $data = new ArticleDTO(
-            title: $validated['title'],
-            content: $validated['content'],
-        );
+        $data = ArticleDTO::fromArray($validated);
 
         $article->update([
             'title' => $data->title,
