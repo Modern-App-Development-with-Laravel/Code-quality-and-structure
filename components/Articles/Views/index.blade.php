@@ -46,7 +46,7 @@
                             Edit
                         </a>
 
-                        @if($article->status === 'draft')
+                        @if($article->status === \Italofantone\Articles\Enums\ArticleStatus::DRAFT)
                             <form action="{{ route('articles.publish', $article) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="text-green-500 hover:underline ml-2 cursor-pointer">

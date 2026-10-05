@@ -3,6 +3,7 @@
 namespace Italofantone\Articles\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Italofantone\Articles\Enums\ArticleStatus;
 
 class Article extends Model
 {
@@ -15,6 +16,7 @@ class Article extends Model
     ];
 
     protected $casts = [
+        'status' => ArticleStatus::class,
         'published_at' => 'datetime',
     ];
 }
